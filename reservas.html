@@ -1,0 +1,366 @@
+<!DOCTYPE html> <!-- Define el documento como HTML5. -->
+<html lang="es"> <!-- Indica que el contenido esta en espanol. -->
+<head> <!-- Abre la configuracion de la pagina. -->
+    <meta charset="UTF-8"> <!-- Permite usar tildes y caracteres latinos. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta la pagina a moviles. -->
+    <title>Agenda tu cita | Leon de Juda</title> <!-- Titulo de la pestana. -->
+
+    <style> /* Estilos basicos de esta pagina. */
+        :root {
+            --gold: #d4a373; /* Color principal dorado. */
+            --bronze: #9a7b56; /* Color para bordes. */
+            --black: #0a0a0a; /* Fondo principal. */
+            --panel: #121214; /* Fondo del formulario. */
+            --white: #ffffff; /* Texto principal. */
+            --gray: #a1a1aa; /* Texto secundario. */
+        }
+
+        * {
+            box-sizing: border-box; /* Mantiene medidas faciles de controlar. */
+        }
+
+        body {
+            margin: 0; /* Quita margen del navegador. */
+            background: var(--black); /* Aplica fondo oscuro. */
+            color: var(--gray); /* Define color del texto base. */
+            font-family: Arial, sans-serif; /* Usa una fuente simple. */
+            line-height: 1.6; /* Mejora la lectura. */
+        }
+
+        a {
+            color: inherit; /* Usa el color del elemento padre. */
+            text-decoration: none; /* Quita subrayado. */
+        }
+
+        img {
+            max-width: 100%; /* Evita que la imagen se salga. */
+            display: block; /* Elimina espacio inferior de imagen. */
+        }
+
+        .container {
+            width: min(1120px, 92%); /* Define ancho maximo responsive. */
+            margin: auto; /* Centra el contenido. */
+        }
+
+        .header {
+            background: #050505; /* Fondo del menu. */
+            border-bottom: 1px solid var(--bronze); /* Linea inferior dorada. */
+        }
+
+        .header-row {
+            min-height: 86px; /* Altura del header. */
+            display: flex; /* Coloca marca y menu en fila. */
+            align-items: center; /* Centra verticalmente. */
+            justify-content: space-between; /* Separa marca y menu. */
+            position: relative; /* Sirve de base para el menu movil. */
+        }
+
+        .brand {
+            display: flex; /* Alinea logo y texto. */
+            align-items: center; /* Centra logo y texto. */
+            gap: 12px; /* Separa logo y texto. */
+            color: var(--gold); /* Color de marca. */
+            font-weight: 800; /* Hace fuerte la marca. */
+            text-transform: uppercase; /* Muestra la marca en mayusculas. */
+        }
+
+        .brand img {
+            width: 60px; /* Define ancho del logo. */
+            height: 60px; /* Define alto del logo. */
+            object-fit: contain; /* Mantiene proporcion del logo. */
+        }
+
+        .brand span {
+            display: block; /* Baja el rubro a otra linea. */
+            color: var(--white); /* Color del rubro. */
+            letter-spacing: 4px; /* Da separacion al texto. */
+        }
+
+        .menu-button {
+            display: none; /* Oculta hamburguesa en escritorio. */
+            padding: 10px 12px; /* Da espacio al boton. */
+            border: 1px solid var(--bronze); /* Borde del boton. */
+            background: transparent; /* Fondo transparente. */
+            width: 46px; /* Ancho del boton. */
+        }
+
+        .menu-button span {
+            display: block; /* Muestra cada linea. */
+            height: 2px; /* Grosor de linea. */
+            margin: 5px 0; /* Separa las lineas. */
+            background: var(--gold); /* Color de linea. */
+        }
+
+        .nav {
+            display: flex; /* Menu horizontal. */
+            align-items: center; /* Centra enlaces. */
+            gap: 26px; /* Separa enlaces. */
+        }
+
+        .nav a {
+            color: var(--white); /* Color de enlaces. */
+            font-weight: 800; /* Texto fuerte. */
+            text-transform: uppercase; /* Enlaces en mayusculas. */
+        }
+
+        .nav .active {
+            color: var(--black); /* Marca pagina actual. */
+        }
+
+        .btn {
+            display: inline-block; /* Permite padding al enlace. */
+            padding: 12px 18px; /* Espacio interno del boton. */
+            border: 1px solid var(--bronze); /* Borde del boton. */
+            background: var(--gold); /* Fondo dorado. */
+            color: var(--black); /* Texto oscuro. */
+            font-weight: 800; /* Texto fuerte. */
+            text-transform: uppercase; /* Texto en mayusculas. */
+        }
+
+        .page-title {
+            padding: 70px 0 30px; /* Espacio del encabezado. */
+            text-align: center; /* Centra el titulo. */
+        }
+
+        .page-title h1 {
+            margin: 0; /* Quita margen del titulo. */
+            color: var(--white); /* Titulo blanco. */
+            font-size: clamp(38px, 7vw, 72px); /* Titulo responsive. */
+            text-transform: uppercase; /* Titulo en mayusculas. */
+        }
+
+        .page-title span {
+            color: var(--gold); /* Destaca palabra dorada. */
+        }
+
+        .form {
+            max-width: 720px; /* Limita ancho del formulario. */
+            margin: 30px auto 70px; /* Centra y separa el formulario. */
+            padding: 24px; /* Espacio interno. */
+            border: 1px solid var(--bronze); /* Borde dorado. */
+            background: var(--panel); /* Fondo del formulario. */
+        }
+
+        .field {
+            margin-bottom: 16px; /* Separa cada campo. */
+        }
+
+        label {
+            display: block; /* Coloca etiqueta arriba del campo. */
+            margin-bottom: 6px; /* Separa etiqueta del campo. */
+            color: var(--white); /* Color de etiqueta. */
+            font-weight: 800; /* Etiqueta fuerte. */
+            text-transform: uppercase; /* Etiqueta en mayusculas. */
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%; /* Campo de ancho completo. */
+            padding: 12px; /* Espacio interno del campo. */
+            border: 1px solid var(--bronze); /* Borde del campo. */
+            background: var(--black); /* Fondo del campo. */
+            color: var(--white); /* Texto del campo. */
+            font: inherit; /* Usa la misma fuente. */
+        }
+
+        textarea {
+            min-height: 110px; /* Altura minima del comentario. */
+            resize: vertical; /* Permite cambiar altura. */
+        }
+
+        .submit {
+            width: 100%; /* Boton de ancho completo. */
+            cursor: pointer; /* Muestra mano al pasar. */
+        }
+
+        .footer {
+            padding: 30px 0; /* Espacio del footer. */
+            border-top: 1px solid var(--bronze); /* Linea superior. */
+            background: #050505; /* Fondo del footer. */
+        }
+
+        .footer h3 {
+            margin: 0 0 8px; /* Separa el titulo del texto. */
+            color: var(--white); /* Titulo blanco. */
+            text-transform: uppercase; /* Titulo en mayusculas. */
+        }
+
+        .footer p {
+            margin: 0 0 6px; /* Separa lineas del footer. */
+        }
+
+        .footer-row {
+            display: flex; /* Coloca textos e iconos en fila. */
+            justify-content: space-between; /* Separa columnas. */
+            gap: 20px; /* Espacio entre columnas. */
+            flex-wrap: wrap; /* Permite salto en pantallas pequenas. */
+        }
+
+        .social {
+            display: flex; /* Alinea iconos. */
+            gap: 12px; /* Separa iconos. */
+        }
+
+        .social img {
+            width: 28px; /* Ancho del icono. */
+            height: 28px; /* Alto del icono. */
+        }
+
+        @media (max-width: 800px) {
+            .header-row {
+                min-height: 76px; /* Altura menor en movil. */
+            }
+
+            .menu-button {
+                display: block; /* Muestra hamburguesa en movil. */
+            }
+
+            .nav {
+                display: none; /* Oculta menu cerrado. */
+                position: absolute; /* Coloca el menu debajo del header. */
+                top: 76px; /* Baja el menu bajo la cabecera. */
+                left: 0; /* Alinea a la izquierda. */
+                right: 0; /* Alinea a la derecha. */
+                z-index: 10; /* Mantiene el menu encima del contenido. */
+                padding: 16px; /* Espacio interno del menu. */
+                background: #050505; /* Fondo del menu movil. */
+                border: 1px solid var(--bronze); /* Borde del menu movil. */
+                flex-direction: column; /* Apila los enlaces. */
+                align-items: flex-start; /* Alinea enlaces a la izquierda. */
+            }
+
+            .nav.open {
+                display: flex; /* Muestra menu abierto. */
+            }
+        }
+    </style> <!-- Cierra estilos. -->
+</head> <!-- Cierra configuracion. -->
+
+<body> <!-- Abre contenido visible. -->
+    <header class="header"> <!-- Cabecera del sitio. -->
+        <div class="container header-row"> <!-- Contenedor del menu. -->
+            <a class="brand" href="index.html"> <!-- Logo con enlace a inicio. -->
+                <img src="assets/img/logo.png" alt="Leon de Juda Lava Autos"> <!-- Imagen del logo. -->
+                <div>Leon de Juda <span>Lava Autos</span></div> <!-- Texto de marca. -->
+            </a>
+
+            <button class="menu-button" type="button" aria-label="Abrir menu"> <!-- Boton hamburguesa. -->
+                <span></span> <!-- Linea superior. -->
+                <span></span> <!-- Linea media. -->
+                <span></span> <!-- Linea inferior. -->
+            </button>
+
+            <nav class="nav"> <!-- Enlaces principales. -->
+                <a href="index.html">Inicio</a> <!-- Enlace a inicio. -->
+                <a href="servicios.html">Servicios</a> <!-- Enlace a servicios. -->
+                <a href="paquetes.html">Promociones</a> <!-- Enlace a promociones. -->
+                <a href="ubicacion.html">Ubicacion</a> <!-- Enlace a ubicacion. -->
+                <a class="btn active" href="reservas.html">Agenda tu cita</a> <!-- Enlace activo. -->
+            </nav>
+        </div>
+    </header>
+
+    <main> <!-- Contenido principal. -->
+        <section class="page-title"> <!-- Encabezado de pagina. -->
+            <div class="container"> <!-- Centra el contenido. -->
+                <h1>Agenda <span>tu cita</span></h1> <!-- Titulo principal. -->
+                <p>Completa tus datos y envia la solicitud por WhatsApp.</p> <!-- Descripcion corta. -->
+            </div>
+        </section>
+
+        <form class="form" id="reservationForm"> <!-- Formulario de reserva. -->
+            <div class="field"> <!-- Campo de nombre. -->
+                <label for="nombre">Nombre completo</label> <!-- Etiqueta del nombre. -->
+                <input id="nombre" required> <!-- Entrada del nombre. -->
+            </div>
+
+            <div class="field"> <!-- Campo de celular. -->
+                <label for="celular">Celular</label> <!-- Etiqueta del celular. -->
+                <input id="celular" type="tel" required> <!-- Entrada del celular. -->
+            </div>
+
+            <div class="field"> <!-- Campo de vehiculo. -->
+                <label for="vehiculo">Vehiculo</label> <!-- Etiqueta del vehiculo. -->
+                <input id="vehiculo" required> <!-- Entrada del vehiculo. -->
+            </div>
+
+            <div class="field"> <!-- Campo de servicio. -->
+                <label for="servicio">Servicio</label> <!-- Etiqueta del servicio. -->
+                <select id="servicio" required> <!-- Lista de servicios. -->
+                    <option value="">Selecciona</option> <!-- Opcion vacia. -->
+                    <option>Lavado basico</option> <!-- Opcion basica. -->
+                    <option>Lavado premium</option> <!-- Opcion premium. -->
+                    <option>Pulido y encerado</option> <!-- Opcion pulido. -->
+                    <option>Lavado de motor</option> <!-- Opcion motor. -->
+                </select>
+            </div>
+
+            <div class="field"> <!-- Campo de fecha. -->
+                <label for="fecha">Fecha</label> <!-- Etiqueta de fecha. -->
+                <input id="fecha" type="date"> <!-- Entrada de fecha. -->
+            </div>
+
+            <div class="field"> <!-- Campo de comentario. -->
+                <label for="comentario">Comentario</label> <!-- Etiqueta del comentario. -->
+                <textarea id="comentario"></textarea> <!-- Entrada de comentario. -->
+            </div>
+
+            <button class="btn submit" type="submit">Enviar por WhatsApp</button> <!-- Boton de envio. -->
+        </form>
+    </main>
+
+   <footer class="footer"> <!-- Pie de pagina. -->
+        <div class="container footer-row"> <!-- Contenedor del footer. -->
+            <div> <!-- Informacion del negocio. -->
+                <h3>Leon de Juda</h3> <!-- Titulo del negocio. -->
+                <p>Lava Autos con enfoque en limpieza, proteccion y confianza.</p> <!-- Descripcion breve. -->
+            </div>
+
+            <div> <!-- Datos de atencion. -->
+                <h3>Atencion</h3> <!-- Titulo de atencion. -->
+                <p>Lunes a sabado</p> <!-- Dias de atencion. -->
+                <p>08:00 - 18:00</p> <!-- Horario de atencion. -->
+                <p>WhatsApp:74105610</p> <!-- Numero editable. -->
+            </div>
+
+            <div> <!-- Datos de ubicacion. -->
+                <h3>Ubicacion</h3> <!-- Titulo de ubicacion. -->
+                <p>Direccion .</p> <!-- Direccion editable. -->
+            </div>
+
+            <div class="social"> <!-- Redes sociales. -->
+                <a href="https://www.facebook.com/profile.php?id=61576991593137"><img src="assets/icons/facebook.svg" alt="Facebook"></a> <!-- Icono Facebook. -->
+                <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a> <!-- Icono Instagram. -->
+                <a href="wa.me/59174105610"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a> <!-- Icono WhatsApp. -->
+                <a href="#"><img src="assets/icons/tiktok.svg" alt="TikTok"></a> <!-- Icono TikTok. -->
+            </div>
+        </div>
+    </footer>
+
+    <script> /* Codigo basico del menu movil y WhatsApp. */
+        const button = document.querySelector('.menu-button'); /* Busca el boton hamburguesa. */
+        const nav = document.querySelector('.nav'); /* Busca el menu principal. */
+        const form = document.querySelector('#reservationForm'); /* Busca el formulario. */
+        const phone = '59170000000'; /* Numero de WhatsApp editable. */
+
+        button.addEventListener('click', () => { /* Detecta el clic del boton. */
+            nav.classList.toggle('open'); /* Muestra u oculta el menu. */
+        });
+
+        form.addEventListener('submit', (event) => { /* Detecta el envio del formulario. */
+            event.preventDefault(); /* Evita recargar la pagina. */
+
+            const message = `Reserva Leon de Juda
+Nombre: ${nombre.value}
+Celular: ${celular.value}
+Vehiculo: ${vehiculo.value}
+Servicio: ${servicio.value}
+Fecha: ${fecha.value}
+Comentario: ${comentario.value}`; /* Crea el mensaje. */
+
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank'); /* Abre WhatsApp. */
+        });
+    </script>
+</body>
+</html>

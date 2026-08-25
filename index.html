@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html> <!-- Define el documento como HTML5. -->
+<html lang="es"> <!-- Indica que el contenido esta en espanol. -->
+<head> <!-- Abre la configuracion de la pagina. -->
+    <meta charset="UTF-8"> <!-- Permite usar tildes y caracteres latinos. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta la pagina a moviles. -->
+    <title>Lava Autos Leon de Juda</title> <!-- Titulo de la pestana. -->
+
+    <style> /* Estilos basicos de esta pagina. */
+        :root {
+            --gold: #d4a373; /* Color principal dorado. */
+            --bronze: #9a7b56; /* Color para bordes. */
+            --black: #0a0a0a; /* Fondo principal. */
+            --panel: #121214; /* Fondo de tarjetas. */
+            --white: #ffffff; /* Texto principal. */
+            --gray: #a1a1aa; /* Texto secundario. */
+        }
+
+        * {
+            box-sizing: border-box; /* Mantiene medidas faciles de controlar. */
+        }
+
+        body {
+            margin: 0; /* Quita margen del navegador. */
+            background: var(--black); /* Aplica fondo oscuro. */
+            color: var(--gray); /* Define color del texto base. */
+            font-family: Arial, sans-serif; /* Usa una fuente simple. */
+            line-height: 1.6; /* Mejora la lectura. */
+        }
+
+        a {
+            color: inherit; /* Usa el color del elemento padre. */
+            text-decoration: none; /* Quita subrayado. */
+        }
+
+        img {
+            max-width: 100%; /* Evita que la imagen se salga. */
+            display: block; /* Elimina espacio inferior de imagen. */
+        }
+
+        .container {
+            width: min(1120px, 92%); /* Define ancho maximo responsive. */
+            margin: auto; /* Centra el contenido. */
+        }
+
+        .header {
+            background: #050505; /* Fondo del menu. */
+            border-bottom: 1px solid var(--bronze); /* Linea inferior dorada. */
+        }
+
+        .header-row {
+            min-height: 86px; /* Altura del header. */
+            display: flex; /* Coloca marca y menu en fila. */
+            align-items: center; /* Centra verticalmente. */
+            justify-content: space-between; /* Separa marca y menu. */
+            position: relative; /* Sirve de base para el menu movil. */
+        }
+
+        .brand {
+            display: flex; /* Alinea logo y texto. */
+            align-items: center; /* Centra logo y texto. */
+            gap: 12px; /* Separa logo y texto. */
+            color: var(--gold); /* Color de marca. */
+            font-weight: 800; /* Hace fuerte la marca. */
+            text-transform: uppercase; /* Muestra la marca en mayusculas. */
+        }
+
+        .brand img {
+            width: 80px; /* Define ancho del logo. */
+            height: 60px; /* Define alto del logo. */
+            object-fit: contain; /* Mantiene proporcion del logo. */
+        }
+
+        .brand span {
+            display: block; /* Baja el rubro a otra linea. */
+            color: var(--white); /* Color del rubro. */
+            letter-spacing: 4px; /* Da separacion al texto. */
+        }
+
+        .menu-button {
+            display: none; /* Oculta hamburguesa en escritorio. */
+            padding: 10px 12px; /* Da espacio al boton. */
+            border: 1px solid var(--bronze); /* Borde del boton. */
+            background: transparent; /* Fondo transparente. */
+            width: 46px; /* Ancho del boton. */
+        }
+
+        .menu-button span {
+            display: block; /* Muestra cada linea. */
+            height: 2px; /* Grosor de linea. */
+            margin: 5px 0; /* Separa las lineas. */
+            background: var(--gold); /* Color de linea. */
+        }
+
+        .nav {
+            display: flex; /* Menu horizontal. */
+            align-items: center; /* Centra enlaces. */
+            gap: 26px; /* Separa enlaces. */
+        }
+
+        .nav a {
+            color: var(--white); /* Color de enlaces. */
+            font-weight: 800; /* Texto fuerte. */
+            text-transform: uppercase; /* Enlaces en mayusculas. */
+        }
+
+        .nav .active {
+            color: var(--gold); /* Marca pagina actual. */
+        }
+
+        .btn {
+            display: inline-block; /* Permite padding al enlace. */
+            padding: 12px 18px; /* Espacio interno del boton. */
+            border: 1px solid var(--bronze); /* Borde del boton. */
+            background: var(--gold); /* Fondo dorado. */
+            color: var(--black); /* Texto oscuro. */
+            font-weight: 800; /* Texto fuerte. */
+            text-transform: uppercase; /* Texto en mayusculas. */
+        }
+
+        .btn-outline {
+            background: transparent; /* Quita fondo dorado. */
+            color: var(--gold); /* Usa texto dorado. */
+        }
+
+        .hero {
+            min-height: calc(100vh - 86px); /* Ocupa la primera pantalla. */
+            display: flex; /* Centra el contenido del hero. */
+            align-items: center; /* Centra verticalmente. */
+            background: linear-gradient(90deg, #000, rgba(0, 0, 0, .55)), url("assets/img/hero-lava-autos.jpg") center/cover no-repeat; /* Fondo del main. */
+        }
+
+        .hero-grid {
+            display: grid; /* Divide el hero en dos columnas. */
+            grid-template-columns: 1fr 1fr; /* Texto a la izquierda y logo a la derecha. */
+            gap: 40px; /* Separa columnas. */
+            align-items: center; /* Centra columnas. */
+        }
+
+        .hero h1 {
+            margin: 0; /* Quita margen del titulo. */
+            color: var(--white); /* Titulo blanco. */
+            font-size: clamp(48px, 8vw, 100px); /* Titulo responsive. */
+            line-height: .95; /* Compacta el titulo. */
+            text-transform: uppercase; /* Titulo en mayusculas. */
+        }
+
+        .hero h1 span {
+            display: block; /* Baja la segunda linea. */
+            color: var(--gold); /* Texto dorado. */
+        }
+
+        .hero .phrase {
+            color: var(--white); /* Frase blanca. */
+            font-family: "Brush Script MT", cursive; /* Da aspecto manuscrito. */
+            font-size: clamp(2rem, 4vw, 3.3rem); /* Escala responsive. */
+            transform: rotate(-5deg); /* Inclina levemente. */
+        }
+
+        .hero p {
+            max-width: 580px; /* Limita ancho del texto. */
+            color: var(--white); /* Texto blanco. */
+        }
+
+        .actions {
+            display: flex; /* Coloca botones en fila. */
+            gap: 14px; /* Separa botones. */
+            margin-top: 26px; /* Separa botones del texto. */
+            flex-wrap: wrap; /* Permite salto si falta espacio. */
+        }
+
+        .hero-logo {
+            text-align: center; /* Centra logo y pie. */
+        }
+
+        .hero-logo img {
+            width: min(430px, 100%); /* Controla tamano del logo. */
+            margin: auto; /* Centra imagen. */
+        }
+
+        .hero-logo figcaption {
+            margin-top: 18px; /* Separa pie del logo. */
+            color: var(--gold); /* Pie dorado. */
+            font-weight: 900; /* Texto fuerte. */
+            text-transform: uppercase; /* Texto en mayusculas. */
+            letter-spacing: 3px; /* Separa letras. */
+        }
+
+        .cards {
+            padding: 60px 0; /* Espacio de tarjetas. */
+            display: grid; /* Activa grilla. */
+            grid-template-columns: repeat(3, 1fr); /* Tres columnas. */
+            gap: 20px; /* Separacion entre tarjetas. */
+        }
+
+        .card {
+            padding: 24px; /* Espacio interno. */
+            border: 1px solid var(--bronze); /* Borde dorado. */
+            background: var(--panel); /* Fondo de tarjeta. */
+        }
+
+        .card h2 {
+            margin-top: 0; /* Quita margen superior. */
+            color: var(--white); /* Titulo blanco. */
+            text-transform: uppercase; /* Titulo en mayusculas. */
+        }
+
+        .footer {
+            padding: 30px 0; /* Espacio del footer. */
+            border-top: 1px solid var(--bronze); /* Linea superior. */
+            background: #050505; /* Fondo del footer. */
+        }
+
+        .footer h3 {
+            margin: 0 0 8px; /* Separa el titulo del texto. */
+            color: var(--white); /* Titulo blanco. */
+            text-transform: uppercase; /* Titulo en mayusculas. */
+        }
+
+        .footer p {
+            margin: 0 0 6px; /* Separa lineas del footer. */
+        }
+
+        .footer-row {
+            display: flex; /* Coloca textos e iconos en fila. */
+            justify-content: space-between; /* Separa columnas. */
+            gap: 20px; /* Espacio entre columnas. */
+            flex-wrap: wrap; /* Permite salto en pantallas pequenas. */
+        }
+
+        .social {
+            display: flex; /* Alinea iconos. */
+            gap: 12px; /* Separa iconos. */
+        }
+
+        .social img {
+            width: 28px; /* Ancho del icono. */
+            height: 28px; /* Alto del icono. */
+        }
+
+        @media (max-width: 800px) {
+            .header-row {
+                min-height: 76px; /* Altura menor en movil. */
+            }
+
+            .menu-button {
+                display: block; /* Muestra hamburguesa en movil. */
+            }
+
+            .nav {
+                display: none; /* Oculta menu cerrado. */
+                position: absolute; /* Coloca el menu debajo del header. */
+                top: 76px; /* Baja el menu bajo la cabecera. */
+                left: 0; /* Alinea a la izquierda. */
+                right: 0; /* Alinea a la derecha. */
+                z-index: 10; /* Mantiene el menu encima del contenido. */
+                padding: 16px; /* Espacio interno del menu. */
+                background: #050505; /* Fondo del menu movil. */
+                border: 1px solid var(--bronze); /* Borde del menu movil. */
+                flex-direction: column; /* Apila los enlaces. */
+                align-items: flex-start; /* Alinea enlaces a la izquierda. */
+            }
+
+            .nav.open {
+                display: flex; /* Muestra menu abierto. */
+            }
+
+            .hero {
+                padding: 60px 0; /* Da aire al hero en movil. */
+            }
+
+            .hero-grid,
+            .cards {
+                grid-template-columns: 1fr; /* Una columna en movil. */
+            }
+        }
+    </style> <!-- Cierra estilos. -->
+</head> <!-- Cierra configuracion. -->
+
+<body> <!-- Abre contenido visible. -->
+    <header class="header"> <!-- Cabecera del sitio. -->
+        <div class="container header-row"> <!-- Contenedor del menu. -->
+            <a class="brand" href="index.html"> <!-- Logo con enlace a inicio. -->
+                <img src="assets/img/logo.png" alt="Leon de Juda Lava Autos"> <!-- Imagen del logo. -->
+                <div>Leon de Juda <span>Lava Autos</span></div> <!-- Texto de marca. -->
+            </a>
+
+            <button class="menu-button" type="button" aria-label="Abrir menu"> <!-- Boton hamburguesa. -->
+                <span></span> <!-- Linea superior. -->
+                <span></span> <!-- Linea media. -->
+                <span></span> <!-- Linea inferior. -->
+            </button>
+
+            <nav class="nav"> <!-- Enlaces principales. -->
+                <a class="active" href="index.html">Inicio</a> <!-- Enlace activo. -->
+                <a href="servicios.html">Servicios</a> <!-- Enlace a servicios. -->
+                <a href="paquetes.html">Promociones</a> <!-- Enlace a promociones. -->
+                <a href="ubicacion.html">Ubicacion</a> <!-- Enlace a ubicacion. -->
+                <a class="btn" href="reservas.html">Agenda tu cita</a> <!-- Enlace a reservas. -->
+            </nav>
+        </div>
+    </header>
+
+    <main> <!-- Contenido principal. -->
+        <section class="hero"> <!-- Hero principal con fondo. -->
+            <div class="container hero-grid"> <!-- Divide texto y logo. -->
+                <div> <!-- Bloque izquierdo del hero. -->
+                    <h1>Cuidamos <span>tu auto</span></h1> <!-- Titulo principal. -->
+                    <div class="phrase">como si fuera nuestro</div> <!-- Frase secundaria. -->
+                    <p>En Leon de Juda Lava Autos cuidamos tu vehiculo con productos de calidad y un servicio que se nota.</p> <!-- Texto breve. -->
+
+                    <div class="actions"> <!-- Botones principales. -->
+                        <a class="btn" href="reservas.html">Agenda tu cita</a> <!-- Boton de reserva. -->
+                        <a class="btn btn-outline" href="https://wa.me/59174105610">WhatsApp</a> <!-- Boton de WhatsApp. -->
+                    </div>
+                </div>
+
+                <figure class="hero-logo"> <!-- Logo del lado derecho. -->
+                    <img src="assets/img/logo.png" alt="Logo Leon de Juda"> <!-- Logo principal. -->
+                    <figcaption>Limpieza | Proteccion | Confianza</figcaption> <!-- Virtudes de la empresa. -->
+                </figure>
+            </div>
+        </section>
+
+        <section class="container cards"> <!-- Servicios destacados. -->
+            <article class="card"> <!-- Tarjeta de calidad. -->
+                <h2>Productos de calidad</h2> <!-- Titulo de tarjeta. -->
+                <p>Usamos productos pensados para cuidar tu auto.</p> <!-- Texto de tarjeta. -->
+            </article>
+
+            <article class="card"> <!-- Tarjeta de rapidez. -->
+                <h2>Servicio rapido</h2> <!-- Titulo de tarjeta. -->
+                <p>Trabajamos con orden para respetar tu tiempo.</p> <!-- Texto de tarjeta. -->
+            </article>
+
+            <article class="card"> <!-- Tarjeta de confianza. -->
+                <h2>Confianza</h2> <!-- Titulo de tarjeta. -->
+                <p>Revisamos cada detalle antes de entregar.</p> <!-- Texto de tarjeta. -->
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer"> <!-- Pie de pagina. -->
+        <div class="container footer-row"> <!-- Contenedor del footer. -->
+            <div> <!-- Informacion del negocio. -->
+                <h3>Leon de Juda</h3> <!-- Titulo del negocio. -->
+                <p>Lava Autos con enfoque en limpieza, proteccion y confianza.</p> <!-- Descripcion breve. -->
+            </div>
+
+            <div> <!-- Datos de atencion. -->
+                <h3>Atencion</h3> <!-- Titulo de atencion. -->
+                <p>Lunes a sabado</p> <!-- Dias de atencion. -->
+                <p>08:00 - 18:00</p> <!-- Horario de atencion. -->
+                <p>WhatsApp:74105610</p> <!-- Numero editable. -->
+            </div>
+
+            <div> <!-- Datos de ubicacion. -->
+                <h3>Ubicacion</h3> <!-- Titulo de ubicacion. -->
+                <p>Direccion .</p> <!-- Direccion editable. -->
+            </div>
+
+            <div class="social"> <!-- Redes sociales. -->
+                <a href="https://www.facebook.com/profile.php?id=61576991593137"><img src="assets/icons/facebook.svg" alt="Facebook"></a> <!-- Icono Facebook. -->
+                <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a> <!-- Icono Instagram. -->
+                <a href="wa.me/59174105610"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a> <!-- Icono WhatsApp. -->
+                <a href="#"><img src="assets/icons/tiktok.svg" alt="TikTok"></a> <!-- Icono TikTok. -->
+            </div>
+        </div>
+    </footer>
+
+    <script> /* Codigo basico del menu movil. */
+        const button = document.querySelector('.menu-button'); /* Busca el boton hamburguesa. */
+        const nav = document.querySelector('.nav'); /* Busca el menu principal. */
+
+        button.addEventListener('click', () => { /* Detecta el clic del boton. */
+            nav.classList.toggle('open'); /* Muestra u oculta el menu. */
+        });
+    </script>
+</body>
+</html>
