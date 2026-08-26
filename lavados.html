@@ -152,14 +152,12 @@
             text-transform: uppercase; /* Titulo en mayusculas. */
         }
 
-        .image-placeholder {
-            min-height: 150px; /* Reserva una altura estable para la imagen. */
-            display: grid; /* Centra el texto del espacio visual. */
-            place-items: center; /* Alinea el texto en ambos ejes. */
+        .card-image {
+            width: 100%; /* Ajusta la imagen al ancho de la tarjeta. */
+            aspect-ratio: 16 / 10; /* Mantiene una proporcion uniforme en las tarjetas. */
+            object-fit: cover; /* Recorta la imagen sin deformarla. */
             margin-bottom: 18px; /* Separa la imagen del titulo. */
-            border: 1px dashed var(--bronze); /* Delimita el espacio de la imagen. */
-            color: var(--gold); /* Identifica el espacio visual. */
-            text-align: center; /* Centra la descripcion del espacio. */
+            border: 1px solid var(--bronze); /* Delimita la imagen con un borde dorado. */
         }
 
         .price {
@@ -268,57 +266,45 @@
 
         <section class="container cards"> <!-- Organiza los tipos de lavado disponibles. -->
             <article class="card"> <!-- Tarjeta de lavado basico. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del lavado basico. -->
-                    <span>Imagen del lavado basico</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/lavados_lavado_basico.jpg" alt="Lavado basico de un vehiculo" loading="lazy"> <!-- Muestra la imagen del lavado basico. -->
                 <h2>Lavado basico</h2> <!-- Presenta el nombre del lavado. -->
                 <p>Limpieza exterior, vidrios, llantas y secado.</p> <!-- Detalle del servicio. -->
-                <p class="price">Bs. 120</p> <!-- Precio del servicio. -->
+                <p class="price">Bs. 30</p> <!-- Muestra el precio del lavado basico. -->
             </article>
 
             <article class="card"> <!-- Tarjeta de lavado premium. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del lavado premium. -->
-                    <span>Imagen del lavado premium</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/lavados_lavado_premium.jpg" alt="Lavado premium de un vehiculo" loading="lazy"> <!-- Muestra la imagen del lavado premium. -->
                 <h2>Lavado premium</h2> <!-- Presenta el nombre del lavado. -->
                 <p>Limpieza interior y exterior con mas detalle.</p> <!-- Detalle del servicio. -->
-                <p class="price">Bs. 180</p> <!-- Precio del servicio. -->
+                <p class="price">Bs. 45</p> <!-- Muestra el precio del lavado premium. -->
             </article>
 
             <article class="card"> <!-- Tarjeta de pulido. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del pulido. -->
-                    <span>Imagen del pulido y encerado</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/lavados_pulido_encerado.jpg" alt="Pulido y encerado de un vehiculo" loading="lazy"> <!-- Muestra la imagen del pulido y encerado. -->
                 <h2>Pulido y encerado</h2> <!-- Presenta el nombre del lavado especial. -->
                 <p>Brillo y proteccion para la pintura.</p> <!-- Detalle del servicio. -->
-                <p class="price">Bs. 350</p> <!-- Precio del servicio. -->
+                <p class="price">Bs. 100</p> <!-- Muestra el precio del pulido y encerado. -->
             </article>
 
             <article class="card"> <!-- Tarjeta de motor. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del lavado de motor. -->
-                    <span>Imagen del lavado de motor</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/lavados_lavado_motor.jpg" alt="Lavado de motor de un vehiculo" loading="lazy"> <!-- Muestra la imagen del lavado de motor. -->
                 <h2>Lavado de motor</h2> <!-- Presenta el nombre del lavado de motor. -->
                 <p>Limpieza cuidadosa del area del motor.</p> <!-- Detalle del servicio. -->
-                <p class="price">Bs. 250</p> <!-- Precio del servicio. -->
+                <p class="price">Bs. 40</p> <!-- Muestra el precio del lavado de motor. -->
             </article>
 
             <article class="card"> <!-- Tarjeta de interior. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual de la limpieza interior. -->
-                    <span>Imagen de la limpieza interior</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/lavados_limpieza_interior.jpg" alt="Limpieza interior de un vehiculo" loading="lazy"> <!-- Muestra la imagen de la limpieza interior. -->
                 <h2>Limpieza interior</h2> <!-- Presenta el nombre de la limpieza interior. -->
                 <p>Aspirado, tablero, puertas y alfombras.</p> <!-- Detalle del servicio. -->
-                <p class="price">Consultar</p> <!-- Indica que el precio se consulta. -->
+                <p class="price">Bs. 35</p> <!-- Muestra el precio de la limpieza interior. -->
             </article>
 
             <article class="card"> <!-- Tarjeta de detailing. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del detailing. -->
-                    <span>Imagen del detailing completo</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/lavados_detailing_completo.jpg" alt="Detailing completo de un vehiculo" loading="lazy"> <!-- Muestra la imagen del detailing completo. -->
                 <h2>Detailing completo</h2> <!-- Presenta el nombre del detailing. -->
                 <p>Atencion detallada para una entrega impecable.</p> <!-- Detalle del servicio. -->
-                <p class="price">Consultar</p> <!-- Indica que el precio se consulta. -->
+                <p class="price">Bs. 120</p> <!-- Muestra el precio del detailing completo. -->
             </article>
         </section>
     </main>

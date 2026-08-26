@@ -152,14 +152,12 @@
             text-transform: uppercase; /* Titulo en mayusculas. */
         }
 
-        .image-placeholder {
-            min-height: 150px; /* Reserva una altura estable para la imagen. */
-            display: grid; /* Centra el texto del espacio visual. */
-            place-items: center; /* Alinea el texto en ambos ejes. */
+        .card-image {
+            width: 100%; /* Ajusta la imagen al ancho de la tarjeta. */
+            aspect-ratio: 16 / 10; /* Mantiene una proporcion uniforme en las tarjetas. */
+            object-fit: cover; /* Recorta la imagen sin deformarla. */
             margin-bottom: 18px; /* Separa la imagen del titulo. */
-            border: 1px dashed var(--bronze); /* Delimita el espacio de la imagen. */
-            color: var(--gold); /* Identifica el espacio visual. */
-            text-align: center; /* Centra la descripcion del espacio. */
+            border: 1px solid var(--bronze); /* Delimita la imagen con un borde dorado. */
         }
 
         .price {
@@ -269,31 +267,25 @@
 
         <section class="container cards"> <!-- Organiza las opciones de mantenimiento. -->
             <article class="card"> <!-- Paquete basico. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual de la proteccion de pintura. -->
-                    <span>Imagen de proteccion de pintura</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/mantenimiento_proteccion_pintura.jpg" alt="Proteccion de pintura de un vehiculo" loading="lazy"> <!-- Muestra la imagen de proteccion de pintura. -->
                 <h2>Proteccion de pintura</h2> <!-- Presenta el primer tratamiento de mantenimiento. -->
-                <p class="price">Bs. 120</p> <!-- Precio del paquete. -->
+                <p class="price">Bs. 70</p> <!-- Muestra el precio de la proteccion de pintura. -->
                 <p>Lavado exterior, vidrios, llantas y secado.</p> <!-- Detalle del paquete. -->
                 <a class="btn" href="reservas.html">Solicitar</a> <!-- Boton de reserva. -->
             </article>
 
             <article class="card"> <!-- Paquete premium. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del cuidado interior. -->
-                    <span>Imagen del cuidado de interiores</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/mantenimiento_cuidado_interiores.jpg" alt="Cuidado de interiores de un vehiculo" loading="lazy"> <!-- Muestra la imagen del cuidado de interiores. -->
                 <h2>Cuidado de interiores</h2> <!-- Presenta el segundo tratamiento de mantenimiento. -->
-                <p class="price">Bs. 180</p> <!-- Precio del paquete. -->
+                <p class="price">Bs. 50</p> <!-- Muestra el precio del cuidado de interiores. -->
                 <p>Lavado interior y exterior con aspirado completo.</p> <!-- Detalle del paquete. -->
                 <a class="btn" href="reservas.html">Solicitar</a> <!-- Boton de reserva. -->
             </article>
 
             <article class="card"> <!-- Paquete pulido. -->
-                <div class="image-placeholder"> <!-- Reserva el espacio visual del mantenimiento completo. -->
-                    <span>Imagen del mantenimiento completo</span> <!-- Identifica el espacio destinado a una imagen. -->
-                </div>
+                <img class="card-image" src="assets/img/mantenimiento_completo.jpg" alt="Mantenimiento completo de un vehiculo" loading="lazy"> <!-- Muestra la imagen del mantenimiento completo. -->
                 <h2>Mantenimiento completo</h2> <!-- Presenta el tercer tratamiento de mantenimiento. -->
-                <p class="price">Bs. 350</p> <!-- Precio del paquete. -->
+                <p class="price">Bs. 130</p> <!-- Muestra el precio del mantenimiento completo. -->
                 <p>Pulido profesional, encerado y acabado brillante.</p> <!-- Detalle del paquete. -->
                 <a class="btn" href="reservas.html">Solicitar</a> <!-- Boton de reserva. -->
             </article>
