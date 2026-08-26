@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html> <!-- Define el documento como HTML5. -->
+<!DOCTYPE html> <!-- Define el documento como HTML5. -->
 <html lang="es"> <!-- Indica que el contenido esta en espanol. -->
 <head> <!-- Abre la configuracion de la pagina. -->
     <meta charset="UTF-8"> <!-- Permite usar tildes y caracteres latinos. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta la pagina a moviles. -->
-    <title>Lava Autos Leon de Juda</title> <!-- Titulo de la pestana. -->
+    <title>Mantenimiento | Leon de Juda</title> <!-- Define el titulo de la pagina de mantenimiento. -->
 
     <style> /* Estilos basicos de esta pagina. */
         :root {
@@ -65,7 +65,7 @@
         }
 
         .brand img {
-            width: 80px; /* Define ancho del logo. */
+            width: 60px; /* Define ancho del logo. */
             height: 60px; /* Define alto del logo. */
             object-fit: contain; /* Mantiene proporcion del logo. */
         }
@@ -117,76 +117,24 @@
             text-transform: uppercase; /* Texto en mayusculas. */
         }
 
-        .btn-outline {
-            background: transparent; /* Quita fondo dorado. */
-            color: var(--gold); /* Usa texto dorado. */
+        .page-title {
+            padding: 70px 0 30px; /* Espacio del encabezado. */
+            text-align: center; /* Centra el titulo. */
         }
 
-        .hero {
-            min-height: calc(100vh - 86px); /* Ocupa la primera pantalla. */
-            display: flex; /* Centra el contenido del hero. */
-            align-items: center; /* Centra verticalmente. */
-            background: linear-gradient(90deg, #000, rgba(0, 0, 0, .55)), url("assets/img/hero-lava-autos.jpg") center/cover no-repeat; /* Fondo del main. */
-        }
-
-        .hero-grid {
-            display: grid; /* Divide el hero en dos columnas. */
-            grid-template-columns: 1fr 1fr; /* Texto a la izquierda y logo a la derecha. */
-            gap: 40px; /* Separa columnas. */
-            align-items: center; /* Centra columnas. */
-        }
-
-        .hero h1 {
+        .page-title h1 {
             margin: 0; /* Quita margen del titulo. */
             color: var(--white); /* Titulo blanco. */
-            font-size: clamp(48px, 8vw, 100px); /* Titulo responsive. */
-            line-height: .95; /* Compacta el titulo. */
+            font-size: clamp(38px, 7vw, 72px); /* Titulo responsive. */
             text-transform: uppercase; /* Titulo en mayusculas. */
         }
 
-        .hero h1 span {
-            display: block; /* Baja la segunda linea. */
-            color: var(--gold); /* Texto dorado. */
-        }
-
-        .hero .phrase {
-            color: var(--white); /* Frase blanca. */
-            font-family: "Brush Script MT", cursive; /* Da aspecto manuscrito. */
-            font-size: clamp(2rem, 4vw, 3.3rem); /* Escala responsive. */
-            transform: rotate(-5deg); /* Inclina levemente. */
-        }
-
-        .hero p {
-            max-width: 580px; /* Limita ancho del texto. */
-            color: var(--white); /* Texto blanco. */
-        }
-
-        .actions {
-            display: flex; /* Coloca botones en fila. */
-            gap: 14px; /* Separa botones. */
-            margin-top: 26px; /* Separa botones del texto. */
-            flex-wrap: wrap; /* Permite salto si falta espacio. */
-        }
-
-        .hero-logo {
-            text-align: center; /* Centra logo y pie. */
-        }
-
-        .hero-logo img {
-            width: min(430px, 100%); /* Controla tamano del logo. */
-            margin: auto; /* Centra imagen. */
-        }
-
-        .hero-logo figcaption {
-            margin-top: 18px; /* Separa pie del logo. */
-            color: var(--gold); /* Pie dorado. */
-            font-weight: 900; /* Texto fuerte. */
-            text-transform: uppercase; /* Texto en mayusculas. */
-            letter-spacing: 3px; /* Separa letras. */
+        .page-title span {
+            color: var(--gold); /* Destaca palabra dorada. */
         }
 
         .cards {
-            padding: 60px 0; /* Espacio de tarjetas. */
+            padding: 30px 0 70px; /* Espacio de tarjetas. */
             display: grid; /* Activa grilla. */
             grid-template-columns: repeat(3, 1fr); /* Tres columnas. */
             gap: 20px; /* Separacion entre tarjetas. */
@@ -202,6 +150,22 @@
             margin-top: 0; /* Quita margen superior. */
             color: var(--white); /* Titulo blanco. */
             text-transform: uppercase; /* Titulo en mayusculas. */
+        }
+
+        .image-placeholder {
+            min-height: 150px; /* Reserva una altura estable para la imagen. */
+            display: grid; /* Centra el texto del espacio visual. */
+            place-items: center; /* Alinea el texto en ambos ejes. */
+            margin-bottom: 18px; /* Separa la imagen del titulo. */
+            border: 1px dashed var(--bronze); /* Delimita el espacio de la imagen. */
+            color: var(--gold); /* Identifica el espacio visual. */
+            text-align: center; /* Centra la descripcion del espacio. */
+        }
+
+        .price {
+            color: var(--gold); /* Precio dorado. */
+            font-size: 32px; /* Tamano del precio. */
+            font-weight: 900; /* Precio destacado. */
         }
 
         .footer {
@@ -264,11 +228,6 @@
                 display: flex; /* Muestra menu abierto. */
             }
 
-            .hero {
-                padding: 60px 0; /* Da aire al hero en movil. */
-            }
-
-            .hero-grid,
             .cards {
                 grid-template-columns: 1fr; /* Una columna en movil. */
             }
@@ -291,9 +250,9 @@
             </button>
 
             <nav class="nav"> <!-- Enlaces principales. -->
-                <a class="active" href="index.html">Inicio</a> <!-- Enlace activo. -->
-                <a href="lavados.html">Lavados</a> <!-- Abre la pagina con los tipos de lavado. -->
-                <a href="mantenimiento.html">Mantenimiento</a> <!-- Abre la pagina con los cuidados de mantenimiento. -->
+                <a href="index.html">Inicio</a> <!-- Enlace a inicio. -->
+                <a href="lavados.html">Lavados</a> <!-- Abre la pagina de lavados. -->
+                <a class="active" href="mantenimiento.html">Mantenimiento</a> <!-- Marca la pagina actual de mantenimiento. -->
                 <a href="ubicacion.html">Ubicacion</a> <!-- Enlace a ubicacion. -->
                 <a class="btn" href="reservas.html">Agenda tu cita</a> <!-- Enlace a reservas. -->
             </nav>
@@ -301,40 +260,42 @@
     </header>
 
     <main> <!-- Contenido principal. -->
-        <section class="hero"> <!-- Hero principal con fondo. -->
-            <div class="container hero-grid"> <!-- Divide texto y logo. -->
-                <div> <!-- Bloque izquierdo del hero. -->
-                    <h1>Cuidamos <span>tu auto</span></h1> <!-- Titulo principal. -->
-                    <div class="phrase">como si fuera nuestro</div> <!-- Frase secundaria. -->
-                    <p>En Leon de Juda Lava Autos cuidamos tu vehiculo con productos de calidad y un servicio que se nota.</p> <!-- Texto breve. -->
-
-                    <div class="actions"> <!-- Botones principales. -->
-                        <a class="btn" href="reservas.html">Agenda tu cita</a> <!-- Boton de reserva. -->
-                        <a class="btn btn-outline" href="https://wa.me/59174105610">WhatsApp</a> <!-- Boton de WhatsApp. -->
-                    </div>
-                </div>
-
-                <figure class="hero-logo"> <!-- Logo del lado derecho. -->
-                    <img src="assets/img/logo.png" alt="Logo Leon de Juda"> <!-- Logo principal. -->
-                    <figcaption>Limpieza | Proteccion | Confianza</figcaption> <!-- Virtudes de la empresa. -->
-                </figure>
+        <section class="page-title"> <!-- Encabezado de pagina. -->
+            <div class="container"> <!-- Centra el contenido. -->
+                <h1>Cuida tu <span>vehiculo</span></h1> <!-- Presenta el titulo principal de mantenimiento. -->
+                <p>Tratamientos para conservar tu auto limpio y protegido.</p> <!-- Explica el contenido de la pagina. -->
             </div>
         </section>
 
-        <section class="container cards"> <!-- Presenta los beneficios principales del negocio. -->
-            <article class="card"> <!-- Tarjeta de calidad. -->
-                <h2>Productos de calidad</h2> <!-- Titulo de tarjeta. -->
-                <p>Usamos productos pensados para cuidar tu auto.</p> <!-- Texto de tarjeta. -->
+        <section class="container cards"> <!-- Organiza las opciones de mantenimiento. -->
+            <article class="card"> <!-- Paquete basico. -->
+                <div class="image-placeholder"> <!-- Reserva el espacio visual de la proteccion de pintura. -->
+                    <span>Imagen de proteccion de pintura</span> <!-- Identifica el espacio destinado a una imagen. -->
+                </div>
+                <h2>Proteccion de pintura</h2> <!-- Presenta el primer tratamiento de mantenimiento. -->
+                <p class="price">Bs. 120</p> <!-- Precio del paquete. -->
+                <p>Lavado exterior, vidrios, llantas y secado.</p> <!-- Detalle del paquete. -->
+                <a class="btn" href="reservas.html">Solicitar</a> <!-- Boton de reserva. -->
             </article>
 
-            <article class="card"> <!-- Tarjeta de rapidez. -->
-                <h2>Atencion rapida</h2> <!-- Titulo de tarjeta. -->
-                <p>Trabajamos con orden para respetar tu tiempo.</p> <!-- Texto de tarjeta. -->
+            <article class="card"> <!-- Paquete premium. -->
+                <div class="image-placeholder"> <!-- Reserva el espacio visual del cuidado interior. -->
+                    <span>Imagen del cuidado de interiores</span> <!-- Identifica el espacio destinado a una imagen. -->
+                </div>
+                <h2>Cuidado de interiores</h2> <!-- Presenta el segundo tratamiento de mantenimiento. -->
+                <p class="price">Bs. 180</p> <!-- Precio del paquete. -->
+                <p>Lavado interior y exterior con aspirado completo.</p> <!-- Detalle del paquete. -->
+                <a class="btn" href="reservas.html">Solicitar</a> <!-- Boton de reserva. -->
             </article>
 
-            <article class="card"> <!-- Tarjeta de confianza. -->
-                <h2>Confianza</h2> <!-- Titulo de tarjeta. -->
-                <p>Revisamos cada detalle antes de entregar.</p> <!-- Texto de tarjeta. -->
+            <article class="card"> <!-- Paquete pulido. -->
+                <div class="image-placeholder"> <!-- Reserva el espacio visual del mantenimiento completo. -->
+                    <span>Imagen del mantenimiento completo</span> <!-- Identifica el espacio destinado a una imagen. -->
+                </div>
+                <h2>Mantenimiento completo</h2> <!-- Presenta el tercer tratamiento de mantenimiento. -->
+                <p class="price">Bs. 350</p> <!-- Precio del paquete. -->
+                <p>Pulido profesional, encerado y acabado brillante.</p> <!-- Detalle del paquete. -->
+                <a class="btn" href="reservas.html">Solicitar</a> <!-- Boton de reserva. -->
             </article>
         </section>
     </main>

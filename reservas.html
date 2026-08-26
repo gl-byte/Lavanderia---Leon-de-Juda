@@ -253,8 +253,8 @@
 
             <nav class="nav"> <!-- Enlaces principales. -->
                 <a href="index.html">Inicio</a> <!-- Enlace a inicio. -->
-                <a href="servicios.html">Servicios</a> <!-- Enlace a servicios. -->
-                <a href="paquetes.html">Promociones</a> <!-- Enlace a promociones. -->
+                <a href="lavados.html">Lavados</a> <!-- Abre la pagina con los tipos de lavado. -->
+                <a href="mantenimiento.html">Mantenimiento</a> <!-- Abre la pagina con los cuidados de mantenimiento. -->
                 <a href="ubicacion.html">Ubicacion</a> <!-- Enlace a ubicacion. -->
                 <a class="btn active" href="reservas.html">Agenda tu cita</a> <!-- Enlace activo. -->
             </nav>
@@ -285,14 +285,17 @@
                 <input id="vehiculo" required> <!-- Entrada del vehiculo. -->
             </div>
 
-            <div class="field"> <!-- Campo de servicio. -->
-                <label for="servicio">Servicio</label> <!-- Etiqueta del servicio. -->
-                <select id="servicio" required> <!-- Lista de servicios. -->
+                <div class="field"> <!-- Campo para elegir el trabajo solicitado. -->
+                <label for="servicio">Lavado o mantenimiento</label> <!-- Identifica el trabajo solicitado. -->
+                <select id="servicio" required> <!-- Lista los lavados y mantenimientos disponibles. -->
                     <option value="">Selecciona</option> <!-- Opcion vacia. -->
                     <option>Lavado basico</option> <!-- Opcion basica. -->
                     <option>Lavado premium</option> <!-- Opcion premium. -->
                     <option>Pulido y encerado</option> <!-- Opcion pulido. -->
-                    <option>Lavado de motor</option> <!-- Opcion motor. -->
+                    <option>Lavado de motor</option> <!-- Incluye el lavado del motor. -->
+                    <option>Proteccion de pintura</option> <!-- Incluye el mantenimiento de la pintura. -->
+                    <option>Cuidado de interiores</option> <!-- Incluye el mantenimiento interior. -->
+                    <option>Mantenimiento completo</option> <!-- Incluye el mantenimiento general. -->
                 </select>
             </div>
 
@@ -321,19 +324,19 @@
                 <h3>Atencion</h3> <!-- Titulo de atencion. -->
                 <p>Lunes a sabado</p> <!-- Dias de atencion. -->
                 <p>08:00 - 18:00</p> <!-- Horario de atencion. -->
-                <p>WhatsApp:74105610</p> <!-- Numero editable. -->
+                <p>WhatsApp: 74105610</p> <!-- Muestra el numero de contacto. -->
             </div>
 
             <div> <!-- Datos de ubicacion. -->
                 <h3>Ubicacion</h3> <!-- Titulo de ubicacion. -->
-                <p>Direccion .</p> <!-- Direccion editable. -->
+                <p>Direccion del local.</p> <!-- Muestra la referencia general del local. -->
             </div>
 
             <div class="social"> <!-- Redes sociales. -->
-                <a href="https://www.facebook.com/profile.php?id=61576991593137"><img src="assets/icons/facebook.svg" alt="Facebook"></a> <!-- Icono Facebook. -->
-                <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a> <!-- Icono Instagram. -->
-                <a href="wa.me/59174105610"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a> <!-- Icono WhatsApp. -->
-                <a href="#"><img src="assets/icons/tiktok.svg" alt="TikTok"></a> <!-- Icono TikTok. -->
+                <a href="https://www.facebook.com/profile.php?id=61576991593137"><img src="assets/icons/facebook.svg" alt="Facebook"></a> <!-- Enlaza con la pagina de Facebook. -->
+                <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a> <!-- Muestra el acceso a Instagram. -->
+                <a href="https://wa.me/59174105610"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a> <!-- Abre una conversacion de WhatsApp. -->
+                <a href="#"><img src="assets/icons/tiktok.svg" alt="TikTok"></a> <!-- Muestra el acceso a TikTok. -->
             </div>
         </div>
     </footer>
@@ -342,7 +345,7 @@
         const button = document.querySelector('.menu-button'); /* Busca el boton hamburguesa. */
         const nav = document.querySelector('.nav'); /* Busca el menu principal. */
         const form = document.querySelector('#reservationForm'); /* Busca el formulario. */
-        const phone = '59170000000'; /* Numero de WhatsApp editable. */
+        const phone = '59170000000'; /* Define el numero de WhatsApp para las reservas. */
 
         button.addEventListener('click', () => { /* Detecta el clic del boton. */
             nav.classList.toggle('open'); /* Muestra u oculta el menu. */
